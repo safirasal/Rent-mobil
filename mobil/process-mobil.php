@@ -8,7 +8,7 @@ if (isset($_POST["simpan_mobil"])) {
     $jenis = $_POST["jenis"];
     $warna = $_POST["warna"];
     $tahun_pembuatan = $_POST["tahun_pembuatan"];
-    $biaya_sewa = $_POST["biaya_sewa"];
+    $biaya_sewa_per_hari = $_POST["biaya_sewa_per_hari"];
 
     # manage upload file
     $fileName = $_FILES["image"]["name"]; // file name
@@ -23,7 +23,7 @@ if (isset($_POST["simpan_mobil"])) {
         # proses insert data ke tabel mobil
         $sql = "insert into mobil values
         ('','$nomor_mobil','$merk','$jenis',
-        '$warna','$tahun_pembuatan','$biaya_sewa','$image')";
+        '$warna','$tahun_pembuatan','$biaya_sewa_per_hari','$image')";
 
         # eksekusi perintah SQL
         mysqli_query($connect, $sql);
@@ -45,7 +45,7 @@ elseif (isset($_POST["update_mobil"])) {
     $jenis = $_POST["jenis"];
     $warna = $_POST["warna"];
     $tahun_pembuatan = $_POST["tahun_pembuatan"];
-    $biaya_sewa = $_POST["biaya_sewa"];
+    $biaya_sewa_per_hari = $_POST["biaya_sewa_per_hari"];
 
     # jika update data beserta gambar
     if (!empty($_FILES["image"]["name"])) {
@@ -72,7 +72,7 @@ elseif (isset($_POST["update_mobil"])) {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $folder)) {
             $sql = "update mobil set nomor_mobil='$nomor_mobil',
             merk='$merk',jenis='$jenis',warna='$warna',
-            tahun_pembuatan='$tahun_pembuatan',biaya_sewa='$biaya_sewa',
+            tahun_pembuatan='$tahun_pembuatan',biaya_sewa_per_hari='$biaya_sewa_per_hari',
             image='$image'
             where id_mobil='$id_mobil'";
             
@@ -91,7 +91,7 @@ elseif (isset($_POST["update_mobil"])) {
     else {
         $sql = "update mobil set nomor_mobil='$nomor_mobil',
             merk='$merk',jenis='$jenis',warna='$warna',
-            tahun_pembuatan='$tahun_pembuatan',biaya_sewa='$biaya_sewa'
+            tahun_pembuatan='$tahun_pembuatan',biaya_sewa_per_hari='$biaya_sewa_per_hari'
             where id_mobil='$id_mobil'";
             
             if (mysqli_query($connect, $sql)) {

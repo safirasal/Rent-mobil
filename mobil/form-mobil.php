@@ -78,9 +78,9 @@ if (!isset($_SESSION["karyawan"])) {
                             value="<?=$mobil["tahun_pembuatan"];?>">
 
                             Biaya Sewa
-                            <input type="text" name="biaya_sewa"
+                            <input type="text" name="biaya_sewa_per_hari"
                             class="form-control mb-2" required
-                            value="<?=$mobil["biaya_sewa"];?>">
+                            value="<?=$mobil["biaya_sewa_per_hari"];?>">
 
                             Image <br>
                             <img src="image/<?=$mobil["image"]?>" width="50%" alt="">
@@ -124,7 +124,7 @@ if (!isset($_SESSION["karyawan"])) {
                         class="form-control mb-2" required>
 
                         Biaya Sewa
-                        <input type="text" name="biaya_sewa"
+                        <input type="text" name="biaya_sewa_per_hari"
                         class="form-control mb-2" required>
 
                         Image 
